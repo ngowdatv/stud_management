@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Ananya Rao",
+    "roll_no": "4AL23CS001",
+    "course": "CSE",
+    "cgpa": 8.72
+  },
+  {
+    "id": 3,
+    "name": "Sneha Shetty",
+    "roll_no": "4AL23CD021",
+    "course": "CSE (DS)",
+    "cgpa": 10.0
+  },
+  {
+    "id": 4,
+    "name": "karthik",
+    "roll_no": "4al23cd030",
+    "course": "cse",
+    "cgpa": 9.0
+  }
+]

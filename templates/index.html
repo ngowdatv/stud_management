@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">S</div>
+        <div>
+          <h2>StudentHub</h2>
+          <span>Management System</span>
+        </div>
+      </div>
+      <nav>
+        <a class="active" href="#"><span>▦</span> Dashboard</a>
+        <a href="#student-form"><span>＋</span> Add Student</a>
+      </nav>
+      <div class="sidebar-footer">Day 3 Project<br><small>Python + Flask + JSON</small></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">STUDENT MANAGEMENT</p>
+          <h1>Dashboard</h1>
+        </div>
+        <button class="primary-btn" onclick="openAddForm()">＋ Add Student</button>
+      </header>
+
+      <section class="stats">
+        <div class="stat-card">
+          <div class="stat-label">Total Students</div>
+          <div class="stat-value" id="totalStudents">0</div>
+          <div class="stat-note">Currently registered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Average CGPA</div>
+          <div class="stat-value" id="averageCgpa">0.00</div>
+          <div class="stat-note">Across all students</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Highest CGPA</div>
+          <div class="stat-value" id="highestCgpa">0.00</div>
+          <div class="stat-note">Best academic score</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <div class="section-head">
+          <div>
+            <h2>Students</h2>
+            <p>Manage your student records</p>
+          </div>
+          <div class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="text" placeholder="Search by name, roll no or course">
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>ROLL NUMBER</th>
+                <th>COURSE</th>
+                <th>CGPA</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="studentTable"></tbody>
+          </table>
+          <div id="emptyState" class="empty">No students found. Add your first student.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="studentModal">
+    <div class="modal-card">
+      <button class="close" onclick="closeForm()">×</button>
+      <h2 id="formTitle">Add Student</h2>
+      <p>Enter the student details below.</p>
+      <form id="student-form">
+        <input type="hidden" id="studentId">
+        <label>Student Name<input id="name" required placeholder="e.g. Ananya Rao"></label>
+        <label>Roll Number<input id="rollNo" required placeholder="e.g. 4AL23CS001"></label>
+        <label>Course<input id="course" required placeholder="e.g. CSE"></label>
+        <label>CGPA<input id="cgpa" required type="number" min="0" max="10" step="0.01" placeholder="e.g. 8.75"></label>
+        <div class="form-actions">
+          <button type="button" class="secondary-btn" onclick="closeForm()">Cancel</button>
+          <button type="submit" class="primary-btn">Save Student</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
