@@ -1,4 +1,4 @@
-DAY 3 - STUDENT MANAGEMENT DASHBOARD
+### STUDENT MANAGEMENT DASHBOARD
 
 Requirements:
 - Python 3.10+ recommended
